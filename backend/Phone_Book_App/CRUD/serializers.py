@@ -4,4 +4,4 @@ from .models import Form_Details
 class Seriaizer(serializers.ModelSerializer):
     class Meta:
         model=Form_Details
-        fields='__all__'
+        fields=['id','First_Name','Last_Name']

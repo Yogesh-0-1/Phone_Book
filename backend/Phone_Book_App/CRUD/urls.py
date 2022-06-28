@@ -3,5 +3,5 @@ from CRUD.views import PhoneViewSet
 from CRUD import views
 
 router = DefaultRouter()
-router.register(r'createUser', views.PhoneViewSet, basename='user')
+router.register(r'createUsers', views.PhoneViewSet, basename='user')
 urlpatterns = router.urls
