@@ -4,6 +4,6 @@ from .serializers import Seriaizer
 from rest_framework import viewsets
 
 # Create your views here.
-class MovieViewSet(viewsets.ModelViewSet):
+class PhoneViewSet(viewsets.ModelViewSet):
     serializer_class = Seriaizer
     queryset = Form_Details.objects.all()
