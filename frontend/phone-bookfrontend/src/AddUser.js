@@ -5,7 +5,7 @@ import API from "./API";
 const AddUser = ({ onAdd }) => {
   const [First_Name, setFirstName] = useState("");
   const [Last_Name, setLastName] = useState("");
-//   const [starring, setStarring] = useState("");
+  const [Phone_Number, setPhoneNumber] = useState("");
   const [userId, setUserId] = useState(null);
   const [users, setUsers] = useState([]);
 
@@ -19,7 +19,7 @@ const AddUser = ({ onAdd }) => {
         setUsers(res.data);
         // setFirstName(res[0].First_Name)
         // setLastName(res[0].Last_Name)
-        // setStarring(res[0].starring)
+        // setPhoneNumber(res[0].Phone_Number)
         // setUserId(res[0].id)
       })
       .catch(console.error);
@@ -28,7 +28,7 @@ const AddUser = ({ onAdd }) => {
   const onSubmit = (e) => {
     e.preventDefault();
     // In future we add Phone_Number in let item
-    let item = { First_Name, Last_Name };
+    let item = { First_Name, Last_Name, Phone_Number };
     API.post("/", item).then(() => refreshUsers());
   };
 
@@ -45,7 +45,7 @@ const AddUser = ({ onAdd }) => {
     let item = users.filter((user) => user.id === id)[0];
     setFirstName(item.First_Name);
     setLastName(item.Last_Name);
-    // setStarring(item.starring);
+    setPhoneNumber(item.Phone_Number);
     setUserId(item.id);
   }
 
@@ -75,15 +75,15 @@ const AddUser = ({ onAdd }) => {
               />
             </Form.Group>
 
-            {/* <Form.Group className="mb-3" controlId="formBasicStarring">
-              <Form.Label>Starring</Form.Label>
+            <Form.Group className="mb-3" controlId="formBasicPhone_Number">
+              <Form.Label>Phone Number</Form.Label>
               <Form.Control
                 type="text"
-                placeholder="Enter Starring"
-                value={starring}
-                onChange={(e) => setStarring(e.target.value)}
+                placeholder="Enter your Phone Number"
+                value={Phone_Number}
+                onChange={(e) => setPhoneNumber(e.target.value)}
               />
-            </Form.Group> */}
+            </Form.Group>
 
             <div className="float-right">
               <Button
@@ -112,7 +112,7 @@ const AddUser = ({ onAdd }) => {
                 {/* <th scope="col">#</th> */}
                 <th scope="col">First Name</th>
                 <th scope="col">Last_Name</th>
-                {/* <th scope="col">Starring</th> */}
+                <th scope="col">Phone Number</th>
                 <th scope="col"></th>
               </tr>
             </thead>
@@ -123,7 +123,7 @@ const AddUser = ({ onAdd }) => {
                     <th scope="row">{user.id}</th>
                     <td> {user.First_Name}</td>
                     <td>{user.Last_Name}</td>
-                    {/* <td>{user.starring}</td> */}
+                    <td>{user.Phone_Number}</td>
                     <td>
                       <i
                         className="fa fa-pencil-square text-primary d-inline"

@@ -10,10 +10,6 @@ class PhoneViewSet(viewsets.ModelViewSet):
     serializer_class = Seriaizer
     queryset = Form_Details.objects.all()
 
-# class User_ListCreate(generics.ListCreateAPIView):
-#     queryset=Form_Details.objects.all()
-#     serializer_class=Seriaizer   
-
 class User_RetrieveUpdateDestroy(RetrieveUpdateDestroyAPIView):
     queryset=Form_Details.objects.all()
     serializer_class=Seriaizer
