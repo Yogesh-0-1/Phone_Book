@@ -15,8 +15,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from CRUD import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('CRUD/', include('CRUD.urls'))
+    path('CRUD/', include('CRUD.urls')),
+    path('user_api/<int:pk>/',views.User_RetrieveUpdateDestroy.as_view()),
 ]
