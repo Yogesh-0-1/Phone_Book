@@ -1,25 +1,38 @@
-import logo from './logo.svg';
+import {useState, useEffect} from 'react';
 import './App.css';
 
 function App() {
+
+  const [users, setUser] = useState([])
+  useEffect (() => {
+    setUser([
+      {
+        First_Name:'John',
+        Last_Name: 'Doe',
+        // starring: 'Damian Lewis, Paul Giamatt',
+      },
+      {
+        First_Name:'Jane',
+        Last_Name: 'Doe',
+        // starring: 'Leleti Khumalo',
+      },
+    
+    ])
+  }, [])
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {/* const {users} = users */}
+      {users.map((user, index) => {
+        return(
+          <div className="users">
+            <h2>{user.First_Name}</h2>
+            <h3>{user.Last_Name}</h3>
+            {/* <h4>{movie.starring}</h4> */}
+          </div>
+        )
+      }
+      )}
     </div>
-  );
-}
-
+  );  
+    }
 export default App;
